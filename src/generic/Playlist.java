@@ -130,6 +130,9 @@ public class Playlist extends javax.swing.JFrame {
      */
     public Playlist() {
         initComponents();
+        tblPlaylist.setModel(koleksi);
+        resizeColumns();
+        resizeListener();
     }
 
     /**
@@ -146,7 +149,7 @@ public class Playlist extends javax.swing.JFrame {
         addFolder = new javax.swing.JMenuItem();
         clearPlaylist = new javax.swing.JMenuItem();
         pnFooter = new javax.swing.JPanel();
-        btnaPlaylist = new javax.swing.JButton();
+        btnPlaylist = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPlaylist = new javax.swing.JTable();
 
@@ -158,7 +161,12 @@ public class Playlist extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnaPlaylist.setText("Playlist");
+        btnPlaylist.setText("Playlist");
+        btnPlaylist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlaylistActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnFooterLayout = new javax.swing.GroupLayout(pnFooter);
         pnFooter.setLayout(pnFooterLayout);
@@ -166,14 +174,14 @@ public class Playlist extends javax.swing.JFrame {
             pnFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnFooterLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(btnaPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(461, Short.MAX_VALUE))
         );
         pnFooterLayout.setVerticalGroup(
             pnFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnFooterLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(btnaPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -196,6 +204,13 @@ public class Playlist extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaylistActionPerformed
+        // TODO add your handling code here:
+        popupTombol.show(btnPlaylist,
+                btnPlaylist.getWidth(),
+                btnPlaylist.getHeight()/2);
+    }//GEN-LAST:event_btnPlaylistActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,7 +250,7 @@ public class Playlist extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem addFiles;
     private javax.swing.JMenuItem addFolder;
-    private javax.swing.JButton btnaPlaylist;
+    private javax.swing.JButton btnPlaylist;
     private javax.swing.JMenuItem clearPlaylist;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnFooter;
